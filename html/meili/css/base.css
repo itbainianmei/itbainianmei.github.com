@@ -1,0 +1,16 @@
+@charset "utf-8";
+/* CSS Document */
+*{ padding:0; margin:0; line-height:100%;}
+body{ font-size:12px; color:#a0a0a0;}
+ul,ol,dd,dt,dl{ list-style:none;}
+a{ color:#000; text-decoration:none;}
+h1,h2,h3,h4,h5,h6{ font-size:12px;}
+i,em{ font-style:normal;}
+b,strong{ font-weight:normal;}
+a img{ border:none;}
+input{border:none 0;}
+.fl{float:left;}
+.fr{float:right;}
+
+.clearfix:after{display:block; content:''; clear:both;}
+.clearfix{zoom:1;}

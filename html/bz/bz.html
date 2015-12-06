@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>bz</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style>
+body{background:#9ea597;}
+.box{width:700px; height:400px;position:relative; margin:100px auto;}
+.box span{position:absolute;background:url(img/1.png) no-repeat; left:0; top:0; opacity:1; }
+input{margin:30px ;position:absolute; top:0; }
+</style>
+<script>
+window.onload=function(){
+    var oBox=document.querySelector('.box');
+    var oBtn=document.body.children[0];
+    var aLi=oBox.children;
+    var C=4;
+    var R=7;
+    var iNow=1;
+    function createS(){
+        oBox.innerHTML='';
+        for(var i=0;i<C;i++){
+            for(var j=0;j<R;j++){
+                var oS=document.createElement('span');
+                oS.style.width=oBox.offsetWidth/R+'px';
+                oS.style.height=oBox.offsetHeight/C+'px';
+                oBox.appendChild(oS);
+                oS.style.left=oS.offsetWidth*j+'px';
+                oS.style.top=oS.offsetHeight*i+'px';
+                oS.style.backgroundPosition=-oS.offsetWidth*j+'px '+-oS.offsetHeight*i+'px';
+                if(iNow>5){
+                    iNow=1;
+                 }
+                aLi[i].style.backgroundImage='url(img/'+iNow+'.png)';
+            }
+        }
+    }
+    createS();
+    oBtn.onclick=function(){
+         createS();
+         iNow++;
+         if(iNow>5){
+            iNow=1;
+         }
+        oBox.style.backgroundImage='url(img/'+iNow+'.png)';
+
+        //document.title=iNow;
+        for(var i=0;i<aLi.length;i++){
+            
+            aLi[i].style.WebkitTransition='1.7s all ease';
+            var cX=aLi[i].offsetLeft+aLi[i].offsetWidth/2;
+            var cY=aLi[i].offsetTop+aLi[i].offsetHeight/2;
+            var disX=oBox.offsetWidth/2;
+            var disY=oBox.offsetHeight/2;
+            var x=(cX-disX)*Math.random();
+            var y=(cY-disY)*Math.random();
+            var deg=Math.random()*180+1;
+            aLi[i].style.WebkitTransform='translateX('+x+'px) translateY('+y+'px) rotateX('+deg+'deg) rotateY('+deg+'deg)';
+            aLi[i].style.opacity=0;
+        }
+    };
+};
+</script>
+</head>
+<body>
+<input type="button" value="button"/>
+ <div class="box"></div>   
+</body>
+</html>

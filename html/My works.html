@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>My works</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="../css/base.css" rel="stylesheet">
+<style>
+body{background:#4a3b3e;}
+.text{margin:50px auto; width:500px; height:50px; line-height:50px; position:relative; background:#2f2229;border-radius:25px; text-align:center;}
+.text div{font-weight:800;color:#000;position:absolute; top:0; left:0; width:500px; height:50px; line-height:50px; font-size:30px;}
+.text div:nth-child(1){z-index:2;
+    -webkit-background-clip:text;
+    -moz-background-clip:text;
+    -ms-background-clip:text;
+    -o-background-clip:text;
+    background-clip:text;color:rgba(0,0,0,0); }
+.text div:nth-child(2){z-index:1;}
+.box{width:840px; margin:0 auto; border:4px solid #e3d6b1;}
+.box div{width:220px; height:170px; float:left; margin:30px;  overflow:hidden; position:relative; z-index:2;}
+.box div a{width:220px; height:170px;background:#0f0;position:absolute; top:0; left:0;  z-index:1;
+    -webkit-transition:0.5s all ease;
+    -moz-transition:0.5s all ease;
+    -ms-transition:0.5s all ease;
+    -o-transition:0.5s all ease;
+    transition:0.5s all ease;
+}
+
+.menu{position:fixed; right:0px; top:50%; margin-top:-150px;width:105px; height:263px; overflow:hidden; background:#e3d6b1; z-index:5;padding:20px 10px 0;}
+.menu i{position:absolute; left:10px; top:20px; background:#9a816d; width:100px; height:40px; z-index:2; 
+   -webkit-transition:1s all ease;
+    -moz-transition:1s all ease;
+    -ms-transition:1s all ease;
+    -o-transition:1s all ease;
+    transition:0.5s all ease;
+    box-shadow:0 0 2px #535351;}
+.menu a{ width:100px; height:40px; text-align:center; line-height:40px; border:1px solid #898989; box-shadow:3px 3px 3px #898989; color:#000; font-size:18px; margin-bottom:25px; position:relative; z-index:3; font-weight:bold;display:block;}
+</style>
+<script>2
+window.onload=function(){
+    var oClip=document.querySelector('.clip');
+    var oBox=document.querySelector('.box');
+    var aDiv=oBox.children;
+    var i=-20;
+    /*var top=86;
+    var iSpeed=0;
+    var timer=null;*/
+    var oMenu=document.getElementById('menu');  
+    var oI=oMenu.children[0];
+    var aA=oMenu.getElementsByTagName('a');
+
+    for(var i=0;i<aA.length;i++){
+        aA[i].onmouseover=function(){
+           oI.style.top=this.offsetTop+'px'; 
+        };
+        aA[i].onmouseout=function(){
+            oI.style.top=this.offsetTop+'px'; 
+        };  
+        
+    }
+    setInterval(function(){
+        i++;
+        oClip.style.background='-webkit-linear-gradient(-30deg,rgba(255,255,255,0) '+i+'px,rgba(255,255,255,1) '+(i+35)+'px,rgba(255,255,255,0) '+(i+70)+'px';
+        oClip.style.WebkitBackgroundClip='text';
+
+        oClip.style.background='-moz-linear-gradient(-30deg,rgba(255,255,255,0) '+i+'px,rgba(255,255,255,1) '+(i+35)+'px,rgba(255,255,255,0) '+(i+70)+'px';
+        oClip.style.MozBackgroundClip='text';
+
+        oClip.style.background='-ms-linear-gradient(-30deg,rgba(255,255,255,0) '+i+'px,rgba(255,255,255,1) '+(i+35)+'px,rgba(255,255,255,0) '+(i+70)+'px';
+        oClip.style.MsBackgroundClip='text';
+
+        oClip.style.background='linear-gradient(-30deg,rgba(255,255,255,0) '+i+'px,rgba(255,255,255,1) '+(i+35)+'px,rgba(255,255,255,0) '+(i+70)+'px';
+        oClip.style.BackgroundClip='text';
+         if(i>500){
+            i=-20;
+        }
+    },20);
+    for(var i=0;i<aDiv.length;i++){       
+        (function(index){
+            var oDiv=aDiv[index].children[0];
+            oDiv.onmouseover=function(){
+               oDiv.style.WebkitTransform='scale(1.5,1.5)'; 
+               oDiv.style.MozitTransform='scale(1.5,1.5)';
+               oDiv.style.transform='scale(1.5,1.5)';
+               oDiv.style.MsTransform='scale(1.5,1.5)';
+               oDiv.style.OTransform='scale(1.5,1.5)';
+            };
+            oDiv.onmouseout=function(){
+               oDiv.style.WebkitTransform='scale(1,1)'; 
+               oDiv.style.MozTransform='scale(1,1)'; 
+               oDiv.style.MsTransform='scale(1,1)'; 
+               oDiv.style.OTransform='scale(1,1)'; 
+               oDiv.style.transform='scale(1,1)'; 
+            };
+            
+        })(i);
+    }
+};
+</script>
+</head>
+<body>
+<div class="text">
+    <div class="clip">那些我做的作品 --- FOREVER LOVE</div>
+    <div>那些我做的作品 --- FOREVER LOVE</div>
+</div>
+<div class="box clearfix">
+    <div><a href="3D/3D.html" style="background:url(../img/qiqin.png) no-repeat; background-size:100% 100%;"></a ></div>
+    <div><a href="fish/fish.html" style="background:url(../img/fish.png) no-repeat; background-size:100% 100%;"></a ></div>
+    <div><a href="drag/drag.html" style="background:url(../img/ccnn.png) no-repeat; background-size:100% 100%;"></a ></div>
+    <div><a href="pb.html" style="background:url(../img/pingbao.png) no-repeat; background-size:100% 100%;"></a ></div>
+    <div><a href="3D_container/3D_container.html" style="background:url(../img/drag.png) no-repeat; background-size:100% 100%;"></a ></div>
+    <div><a href="circle.html" style="background:url(../img/circle.png) no-repeat; background-size:100% 100%;"></a ></div>
+    <div><a href="bz/bz.html" style="background:url(../img/bz.png) no-repeat; background-size:100% 100%;"></a ></div>
+    <div><a href="meili/index.html" style="background:url(../img/mm.png) no-repeat; background-size:100% 100%;"></a ></div>
+    <div><a href="mt/index.html" style="background:url(../img/mt.png) no-repeat; background-size:100% 100%;"></a ></div>
+    
+</div>
+<ol class="menu" id="menu">
+    <i></i>
+    <a href="../index.html" target="_blank">Home</a>
+    <a href="My works.html"  target="_blank">My Works</a>
+    <a href="My Skills.html"  target="_blank">My SKills</a>
+    <a href="About me.html"  target="_blank">About Me</a>
+</ol>
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style>
+body{background:#000;}
+*{margin:0; padding:0; list-style:none;}
+#ul1{width:133px; height:200px; position:relative; margin:100px auto; -webkit-transform-style:preserve-3d; -webkit-transform:perspective(800px) rotateY(0deg) rotateX(-0deg); 
+}
+#ul1 li{width:133px; height:200px;  border-radius:3px;position:absolute; top:0; left:0;box-shadow:0 0 10px white;-webkit-transition:2s all ease; }
+#ul1 img{width:100%;border-radius:3px; }
+li .em{position:absolute; left:0; top:218px; width:100%; height:100%; -webkit-transform:scale(1,-1); -webkit-mask:-webkit-linear-gradient(rgba(0,0,0,0) 40%,rgba(0,0,0,1)); opacity:0.3;}
+</style>
+<script>
+window.onload=function(){
+    var oUl = document.getElementById('ul1');
+    var aLi = oUl.children;
+    var i=aLi.length-1;
+    var x=0;
+    var y=0;
+    var timer2 = null;
+    var speedX=0;
+    var speedY=0;
+    var lastX=0;
+    var lastY=0;
+    document.onmousedown=function(ev){
+        var disX=ev.clientX-y;
+        var disY=ev.clientY-x;
+        document.onmousemove=function(ev){
+            y=ev.clientX-disX;
+            x=ev.clientY-disY;
+            if(x>=300){
+                    x=300;
+            }else if(x<=-300){
+                x=-300;
+            }
+            oUl.style.WebkitTransform='perspective(800px) rotateX('+-x/5+'deg) rotateY('+y/5+'deg)';
+        };
+        document.onmouseup=function(){
+            document.onmousemove=null;
+            document.onmouseup=null;
+           
+        };
+        return false;
+    };
+    var timer=setInterval(function(){
+        aLi[i].style.WebkitTransform='rotateY('+i*360/aLi.length+'deg) translateZ(355px)';
+        i--;
+        if(i<0){
+            clearInterval(timer);
+        }
+    },100);
+    var right=false;
+    var left=false;
+    var top=false;
+    var bottom=false;
+    setInterval(function(){
+        if(left){
+            y-=5;
+            oUl.style.WebkitTransform='perspective(800px) rotateX('+-x/5+'deg) rotateY('+y/5+'deg)'; 
+
+        }
+        if(right){
+            y+=5;
+            oUl.style.WebkitTransform='perspective(800px) rotateX('+-x/5+'deg) rotateY('+y/5+'deg)'; 
+
+        }
+        if(top){
+            x-=5;
+            oUl.style.WebkitTransform='perspective(800px) rotateX('+-x/5+'deg) rotateY('+y/5+'deg)'; 
+
+        }
+        if(bottom){
+            x+=5;
+            oUl.style.WebkitTransform='perspective(800px) rotateX('+-x/5+'deg) rotateY('+y/5+'deg)'; 
+
+        }
+        if(x>=300){
+            x=300;
+        }else if(x<=-300){
+            x=-300;
+        }
+        
+        
+    },30);
+    document.onkeydown=function(ev){
+        switch(ev.keyCode){
+            case 37:
+                left=true;
+            break;
+            case 38:
+                top=true;
+            break;
+            case 39:
+                right=true;
+            break;
+            case 40:
+                bottom=true;
+            break;
+        }
+    };
+     document.onkeyup=function(ev){
+        switch(ev.keyCode){
+            case 37:
+                left=false;
+            break;
+            case 38:
+                top=false;
+            break;
+            case 39:
+                right=false;
+            break;
+            case 40:
+                bottom=false;
+            break;
+        }
+    };
+    
+   
+};
+</script>
+</head>
+<body>
+<ul id="ul1">
+    <li><img src="img/q1.png" /><img class="em" src="img/q1.png" /></li>
+    <li><img src="img/q2.png" /><img class="em" src="img/q2.png" /></li>
+    <li><img src="img/q3.png" /><img class="em" src="img/q3.png" /></li>
+    <li><img src="img/q4.png" /><img class="em" src="img/q4.png" /></li>
+    <li><img src="img/q5.png" /><img class="em" src="img/q5.png" /></li>
+    <li><img src="img/q6.png" /><img class="em" src="img/q6.png" /></li>
+    <li><img src="img/q7.png" /><img class="em" src="img/q7.png" /></li>
+    <li><img src="img/q8.png" /><img class="em" src="img/q8.png" /></li>
+    <li><img src="img/q9.png" /><img class="em" src="img/q9.png" /></li>
+    <li><img src="img/q10.png" /><img class="em" src="img/q10.png" /></li>
+    <li><img src="img/q11.png" /><img class="em" src="img/q11.png" /></li>
+</ul>
+</body>
+</html>

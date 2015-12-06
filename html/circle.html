@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="zym - zym.com">
+<meta name="copyright" content="zym - zym.com">
+<title>circle</title>
+<style>
+body{background:#0b062a;}
+*{margin:0; padding:0; list-style:none;}
+#box{width:300px; height:300px; position:absolute; top:200px; left:50%;margin-left:-150px; border-radius:50%; background:#f6132a; box-shadow:0px 0px 100px red; }
+#box2{width:500px; height:500px;  position:absolute; top:50%; left:50%;margin-left:-250px; margin-top:-250px; border-radius:50%;}
+span{width:20px; height:90px; position:absolute; top:0; left:50%; margin-left:-10px; background:red; margin-top:-25px;-webkit-transform:perspective(800px) rotate(0deg); -webkit-transform-origin:center center; box-shadow:0px 0px 10px #f04;}
+</style>
+<script>
+function d2a(d){
+	return d*Math.PI/180;
+}
+function a2d(a){
+	return a*180/Math.PI;
+}
+
+window.onload=function(){
+	var oBox = document.getElementById('box');
+	var oBox2 = document.getElementById('box2');
+	var R=0;
+	var N=10;
+	var a=0;
+	var bOk = true;
+	for(var i=0;i<N;i++){
+		var oS=document.createElement('span');
+		oBox2.appendChild(oS);
+	}
+	var aS=oBox2.children;
+	for(var i=0;i<aS.length;i++){
+		var a=Math.abs(aS[i].offsetLeft);
+		var b=Math.abs(aS[i].offsetTop);
+		R=Math.sqrt(a*a+b*b);
+
+	}
+	
+	oBox.onclick=function(){
+		if(bOk){
+			for(var i=0;i<aS.length;i++){
+				startMove(aS[i],360/aS.length*i);
+				aS[i].style.WebkitTransform='perspective(800px) rotate('+i*360/N+'deg)';
+			}
+		}else{
+			for(var i=0;i<aS.length;i++){
+				startMove(aS[i],0);
+				aS[i].style.WebkitTransform='perspective(800px) rotate(0deg)';
+			}	
+		}
+		bOk=!bOk;
+	};
+	
+	function startMove(obj,iTarget){
+		var start=obj.a||0;          ///////////////////
+		var dis=iTarget-start;
+		var count=Math.floor(1000/30);
+		var n=0;
+		clearInterval(obj.timer);
+		obj.timer=setInterval(function(){
+			n++;
+			var c=1-n/count;
+			var cur=start+dis*(1-Math.pow(c,3));
+			obj.a=cur;
+			var x=R+Math.sin(d2a(cur))*R;             //////////////
+			var y=R-Math.cos(d2a(cur))*R;             //////
+			obj.style.left=x+'px';
+			obj.style.top=y+'px';
+			if(n==count){
+				clearInterval(obj.timer);
+			}	
+		},30);
+	}
+};
+</script>
+</head>
+
+<body>
+<div id="box">	
+<div id="box2"></div>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

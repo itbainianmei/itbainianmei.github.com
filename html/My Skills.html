@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>My Skills</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="../css/base.css" rel="stylesheet">
+<style>
+.menu{position:fixed;padding:20px; right:0px; top:50%; margin-top:-150px;width:105px; height:263px; overflow:hidden; background:#fff; z-index:5;}
+.menu i{position:absolute; left:20px; top:20px; background:#535351; width:100px; height:40px; z-index:2; 
+    -webkit-transition:1s all ease;
+    -moz-transition:1s all ease;
+    -ms-transition:1s all ease;
+    -o-transition:1s all ease;
+    transition:1s all ease;
+    box-shadow:0 0 2px #535351;}
+.menu a{width:100px; height:40px; text-align:center; line-height:40px; border:1px solid #898989; box-shadow:3px 3px 3px #898989; color:#000; font-size:18px; margin-bottom:25px; position:relative; z-index:3; font-weight:bold;display:block;} 
+</style>
+<script src="../js/raphael.js"></script>
+
+<script>
+function d2a(n){
+    return n*Math.PI/180;
+}
+function colorRnd(){
+    return 'rgb('+[parseInt(Math.random()*256),parseInt(Math.random()*256),parseInt(Math.random()*256)].join(',')+')';
+}
+
+window.onload=function(){
+    var oMenu=document.getElementById('menu');  
+    var oI=oMenu.children[0];
+    var aA=oMenu.getElementsByTagName('a');
+
+    var oPage=Raphael(160,50,1024,600);
+    var rect=oPage.rect(0,0,1024,600);
+    rect.attr({'fill':'black'});
+    var cx=600,cy=300,r=200;
+    
+    var arr=[9,10,9,7,7,6,8,4,6,5];
+    var iMax=Math.max.apply(null,arr);
+    var aWidth=[];
+    var arrColum=[];
+    var space=oPage.height/(arr.length*4);
+    var h=space*2;
+
+    //画图封装
+    function creatColum(sx,sy,w,h,color){
+        var path=oPage.path();
+        var aT=['js','html','css','jsonp','ajax','html5','css3','各种框架','jquery','其他'];
+        path.attr({'path':[
+            'M',sx,sy,
+            'L',sx+w,sy,sx+w,sy+h,sx,sy+h,
+            'Z'
+        ].join(' '),
+        'fill':color,
+        //'stroke':'#000',
+        'stroke-width':'2',
+        'transform':'s 1 1'
+        });
+        arrColum.push(path);
+        for(var i=0;i<aT.length;i++){
+            var text=oPage.text(20,66+i*space*3,aT[i]);
+            text.attr({
+               "fill":"#fff",
+                "font-size":"30px",
+                "text-anchor":"start"
+            })
+        }
+
+    }
+
+    //求宽
+    for(var i=0;i<arr.length;i++){
+        aWidth.push(arr[i]/iMax*(oPage.width-200));
+    }
+    
+    //画
+    for(var i=0;i<aWidth.length;i++){
+        creatColum(180,i*h+i*space+50,aWidth[i],h,colorRnd());
+    }
+    //每个图的移入移出事件
+     for(var i=0;i<arrColum.length;i++){
+        arrColum[i].hover(function(){
+            for(var i=0;i<arrColum.length;i++){
+                arrColum[i].animate({'transform':'s 1 1'},700,'ease-out');
+            }
+            this.animate({'transform':'s 1.2 1.4'},700,'ease-out');
+        },function(){
+            for(var i=0;i<arrColum.length;i++){
+                arrColum[i].animate({'transform':'s 1 1'},700,'ease-out');
+            }
+        });
+    }
+
+    for(var i=0;i<aA.length;i++){
+        aA[i].onmouseover=function(){
+           oI.style.top=this.offsetTop+'px'; 
+        };
+        aA[i].onmouseout=function(){
+            oI.style.top=this.offsetTop+'px'; 
+        };  
+        
+    }
+};
+</script>
+</head>
+<body>
+ <ol class="menu" id="menu">
+    <i></i>
+    <a href="../index.html" target="_blank">Home</a>
+    <a href="My works.html"  target="_blank">My Works</a>
+    <a href="My Skills.html"  target="_blank">My SKills</a>
+    <a href="About me.html"  target="_blank">About Me</a>
+</ol>   
+</body>
+</html>

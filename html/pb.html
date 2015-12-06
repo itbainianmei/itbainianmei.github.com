@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style>
+*{margin:0; padding:0;}
+#c1{background:#000;}
+</style>
+<script>
+function rnd(n,m){
+    return parseInt(n+Math.random()*(m-n));
+}
+window.onload=function(){
+    var oC=document.getElementById('c1');
+    var n=5;
+    var len=25;
+    var oldPos=[];
+    var w=document.documentElement.clientWidth;
+    var h=document.documentElement.clientHeight;
+    oC.width=w;
+    oC.height=h;
+    var gc=oC.getContext('2d');
+    var aPoint=[];
+    for(var i=0;i<n;i++){
+        aPoint[i]={
+            x:rnd(0,w),
+            y:rnd(0,h),
+            speedX:rnd(-10,10),
+            speedY:rnd(-10,10)
+        };
+    }
+
+    setInterval(function(){
+        gc.clearRect(0,0,w,h);
+        for(var i=0;i<aPoint.length;i++){
+            aPoint[i].x+=aPoint[i].speedX;
+            aPoint[i].y+=aPoint[i].speedY;
+            if(aPoint[i].x<0){
+                aPoint[i].x=0;
+                aPoint[i].speedX*=-1;
+            }
+            if(aPoint[i].x>w){
+                aPoint[i].x=w;
+                aPoint[i].speedX*=-1;
+            }
+            if(aPoint[i].y<0){
+                aPoint[i].y=0;
+                aPoint[i].speedY*=-1;
+            }
+            if(aPoint[i].y>h){
+                aPoint[i].y=h;
+                aPoint[i].speedY*=-1;
+            }
+            gc.fillStyle='#fff';
+            gc.fillRect(aPoint[i].x,aPoint[i].y,1,1);
+        }
+        gc.beginPath();
+        gc.strokeStyle='rgb('+rnd(0,256)+','+rnd(0,256)+','+rnd(0,256)+')';
+        gc.moveTo(aPoint[0].x,aPoint[0].y);
+        for(var j=1;j<n;j++){
+            gc.lineTo(aPoint[j].x,aPoint[j].y);
+            gc.closePath();
+            gc.stroke(); 
+            var arr=[];
+            for(var c=0;c<aPoint.length;c++){
+                arr.push({
+                    x:aPoint[c].x,
+                    y:aPoint[c].y
+                });
+            }
+            oldPos.push(arr);
+           while(oldPos.length>len){
+                oldPos.shift();
+           }
+           for(var i=0;i<oldPos.length;i++){
+                gc.beginPath();
+                var opacity = 1-i/oldPos.length;
+                gc.moveTo(oldPos[i][0].x,oldPos[i][0].y);
+                for(var j=0;j<oldPos[i].length;j++){
+                    gc.lineTo(oldPos[i][j].x,oldPos[i][j].y);
+                }
+                gc.closePath();
+                gc.stroke();
+           }
+           gc.strokeStyle='rgba('+rnd(0,256)+','+rnd(0,256)+','+rnd(0,256)+','+opacity+')';
+        }
+    },16);
+};
+</script>
+</head>
+<body>
+<canvas id="c1"></canvas>  
+</body>
+</html>

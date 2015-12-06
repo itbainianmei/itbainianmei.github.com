@@ -1,0 +1,778 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>美团</title>
+<link rel="stylesheet" href="css/base.css" />
+<link rel="stylesheet" href="css/index.css" />
+
+<style>
+/*头部开始*/	
+	.zym_nav{width:100%; height:30px; background:#f5f5f5;}
+	.zym_nadiv{width:1200px; height:30px; margin:0 auto; }
+	.zym_nle{width:310px; height:21px; margin-top:9px; }
+	.zym_nle li{float:left; margin-right:13px; height:100%;}
+	.zymb0 b{margin-left:10px;}
+	.zymlog{color:#F60;}
+	.zymregis:hover{color:#F60;}
+	.zym_nv_pho{background:url(img/zym_ph.png) no-repeat left -1px; padding-left:16px;}
+	.zym_nv_pho i{width:10px; height:7px; background:url(img/zym_dsj.png) no-repeat right -2px; display:inline-block; margin-left:4px;}
+	
+	.zym_nri{width:557px; height:21px; margin-top:9px; }
+	.zym_nri li{padding:0 8px; float:left; position:relative;}
+	.zymn_order:hover{text-decoration:underline; color:#6C9;}
+	.zym_nri em{color:#ccc; float:left; }
+	.zym_nri i{width:10px; height:7px; background:url(img/zym_dsj.png) no-repeat right -2px; display:inline-block; margin-left:4px; }
+	.zym_nri .zymcar{background:url(img/zym_buy.png) no-repeat 4px 0px; padding-left:20px;}
+	#zynnumber{color:#F60; margin:0 2px;}
+	.zym_mdqg{width:1201px; margin:0 auto;}
+/*logo*/	
+	.zym_lo{ padding-top:19px; width:1200px; height:91px; margin:0 auto;}
+	.zymlo_le{width:144px; height:60px;}
+	.zymlo_le a{width:86px; height:58px; background:url(img/base.vdd88fa40.png) no-repeat 0 -78px; float:left;}
+	.zym_beijin{font-size:18px; font-weight:bold; }
+	.zym_city{width:56px; height:22px; border:1px solid #ccc; line-height:22px; text-align:center; margin-top:7px; }
+	.zymlo_leri{width:54px; }
+	.zymlo_mid{width:594px; height:80px; margin:10px 0 0 140px;}
+	.zymlo_mid_sear{ width:588px; height:46px; border:2px solid #2db8ad; }
+	.zym_tgj{width:63px; height:46px; line-height:46px; text-align:center; font-size:14px; border-right:1px solid #ccc; background:url(img/zym_dsj.png) no-repeat 50px center;}
+	.zym_tex{width:438px; height:46px; font-size:14px; color:#666; padding-left:6px;}
+	.zym_sousuo{cursor:pointer; width:80px; height:46px; background:#2db8ad; color:#fff; text-align:center; line-height:46px;}
+	.zymlo_mid_btex{margin-top:8px;}
+	.zymlo_mid_btex a{float:left; margin-right:24px;}
+	.zymlo_mid_btex a:hover{color:#2db8ad;}
+	.zymlo_ri{margin-top:10px; padding-left:120px; width:200px; height:46px;}
+	.zymlo_ri1 i{background:url(img/base.vdd88fa40.png) no-repeat -11px -32px; width:35px; height:46px; float:left;}
+	.zymlo_ri2 i{background:url(img/base.vdd88fa40.png) no-repeat -74px -32px; width:61px; height:46px; float:left;}
+	.zymlo_ri3 i{background:url(img/base.vdd88fa40.png) no-repeat -162px -32px; width:36px; height:46px; float:left;}
+	.zymlo_ri a{float:left; margin-right:30px;} 
+	.zymlo_ri .zymlo_ri3{margin-right:0px;}
+/*logo下面的*/	
+	.zym_lobottom{width:1200px; margin:0 auto;}
+	.zym_lob_le{width:209px; height:517px; border:2px solid #2db8ad;}
+	.zym_clasfiy{width:191px;padding-left:18px; height:36px; color:#FFF; background:#2db8ad; line-height:36px; font-size:14px;}
+	.zym_lob_le ul{width:190px; margin-left:16px;}
+	.zym_lob_le li{position:relative; width:174px; border-bottom:1px solid #ccc; padding-top:12px; padding-bottom:6px;}
+	.zym_lob_le .zymbonone{border-bottom:0;}
+	.zym_loble_bold{font-weight:bold; font-size:16px; margin-bottom:7px;display:inline-block;}
+	.zym_loble_tex a{margin-right:6px;}
+	.zym_gt{width:9px; height:11px; position:absolute; top:26px; right:0px;background:url(img/base.vdd88fa40.png) no-repeat 0 -18px;}
+	.zym_piaoliu{background:#2db8ad; color:#fff; padding:2px;}
+	
+	.zym_lob_mi{width:766px; }
+	.zym_lobmilis1{width:765px; border-bottom:2px solid #2db8ad; }
+	.zym_lobmilis1 li{float:left; line-height:40px}
+	.zym_lobmilis1 li a{color:#000; font-size:16px; font-weight:bold; margin-left:30px;}
+	.zym_lobmilis1 li a:hover{color:#F60; }
+	.zym_clock{width:19px; height:20px; background:url(img/zymclock.png) no-repeat left 2px; display:inline-block;}
+	.zym_hei479{width:764px; height:479px; border-right:1px solid #ccc; border-bottom:1px solid #ccc;}
+	.zym_wid735{margin-left:16px; width:735px; border-bottom:1px solid #ccc; height:49px;}
+	.zym_wid735 em{float:left; width:27px; height:22px; background:url(img/zym_img.png) left center; margin-top:16px;}
+	.zym_wid735 a,.zym_wid735 i{float:left; margin-right:20px; line-height:50px; }
+	.zym_title{margin-left:16px; width:735px; height:46px;}
+	.zym_title p{}
+	.zym_wx{background:url(img/%E4%B8%8B%E8%BD%BD.png) no-repeat left top; width:12px; height:13px; display:inline-block; margin-top:16px;}
+	.zym_bej{font-size:16px; font-weight:bold; color:#000; margin:16px 0 0 4px;}
+	.zym_lob_ri{margin-left:13px; }
+	.zym_bej_ri a{width:10px; height:10px; border-radius:50%; background:#ccc; float:left; margin:16px 0 0 10px; }
+	.zym_qiehuan{width:765px; height:284px; }
+	.zym_qiehuan li{width:374px; height:272px; float:left;}
+	.zym_btext1{width:374px; height:53px; border-right:1px solid #ccc;  border-bottom:1px solid #ccc;}
+	.zym_btext1_le{padding:10px 0 0 15px;width:247px; height:43px; background:#f6f6f6;}
+	.zym_btext1_le p:hover,.zym_btext1_le  i:hover{color:#F60;}
+	.zym_blbt{font-size:14px; color:#666; margin-bottom:6px;}
+	.zym_btext2{width:100px; height:53px; color:#F60; font-size:18px; line-height:52px; text-align:center;}
+	.zym_lob_ri{width:208px; }
+	.zym_sjb{width:208px; height:40px; border-bottom:2px solid #2db8ad; }
+	.zym_sjb a{line-height:40px; height:40px; float:right;}
+	.zym_sjb a:hover{color:#F60;}
+	.zym_sjb_pic{float:right; height:21px; width:21px; background:url(img/zymshoujiban.png) no-repeat ; margin-top:10px;}
+	.zym_mmcz{width:201px; height:31px; padding:7px 0 0 7px; }
+	.zym_mmcz_le i{background:#F60; color:#fff; font-size:16px;}
+	.zym_mmcz em{font-size:16px; color:#F60;}
+	.zym_mmcz_ri a{margin-top:4px; display:inline-block; }
+	.zym_mmcz_ri a:hover{color:#F60;}
+	
+	.zym_mxia{width:208px; border:1px solid #ccc;}
+	.zym_mxia li{position:relative;}
+	.zym_change{position:absolute; bottom:15px; left:80px;}
+	.zym_change a{float:left; width:10px; height:10px; border-radius:50%; background:#ccc; margin-right:6px;}
+	.zym_mxia .zym_gm{width:194px; height:67px; border-bottom:1px dotted #ccc; border-top:1px dotted #ccc; padding:23px 0 0 14px;}
+	.zym_gm b{float:left;line-height:18px;}
+	.zym_gm i{color:#F60; float:right;line-height:18px;}
+/*fir开始*/	
+	.zym_one{width:1207px; margin:0 auto; margin-top:13px;}
+	.zym_one_le{border:1px solid #ccc; width:980px; float:left;}
+	.zym_one_title{width:980px; height:46px; background:#f6f6f6; border-right:1px solid #ccc; }
+	.zymone_title_pic{width:25px; height:23px; background:url(img/clock.png) no-repeat left top; float:left;}
+	.zymone_title_le i{float:left; font-size:24px; color:#222;}
+	
+	.zym_one_le b,.zymone_title_le em{float:left; margin:6px 0 0 4px;}
+	.zymone_title_le{width:900px; }
+	.zymone_title_le em{width:14px; height:14px; background:#a9abb1; padding:2px; color:#fff;}
+	.zymone_title_ri{width:72px; height:20px; border:1px solid #ccc; background:#ededed; line-height:20px; text-align:center; margin:13px 2px 0 0;}
+	.zym_one_con {width:982px; }
+	.zym_one_con li{width:202px; height:212px; padding:18px; float:left;}
+	.zym_onecon_t1{margin:20px 0 28px 0;}
+	.zym_onecon_t1:hover{color:#F60;}
+	.zym_onecon_t2 i{font-size:18px; color:#f60; float:left; margin-top:6px;}
+	.zym_onecon_t2 b{background:#F60; color:#fff; width:102px; height:18px; line-height:18px; text-align:center; }
+	.zym_one_ri{width:208px; border:1px solid #ccc; margin-left:14px;}
+	.zym_one_ri li{width:184px; height:77px; margin-left:12px; padding-top:23px; border-bottom:1px dotted #ccc;}
+	.zym_one_rimt{width:50px; height:53px; background:url(img/zymmao.png) no-repeat; display:inline-block; margin-right:15px;}
+	.zym_one_rimt2 p{font-size:18px; color:#222; margin-bottom:10px;}
+	.zym_one_rimt2 a{width:88px; height:24px; background:#2db8ad; color:#fff; line-height:24px; text-align:center; border-radius:3px; display:inline-block;}
+	.zym_one_rimt2 a em{width:14px; height:14px; background:#000; opacity:0.5; filter:alpha(opacity:50); border-radius:50%; display:inline-block; margin:-2px 0 0 4px;}
+/**/	
+
+/**/	
+/**/	
+/**/	
+/**/	
+</style>
+<style>
+	.zymmt,.zymlx,.zymrec,.zymbcar,.zymmore,.zymsell{display:none; }
+	.ben{background:#fff; }
+	.ben2{background:#f5f5f5;}
+	.hei_18{line-height:18px;}
+	.zymmt_s{display:block; position:absolute; top:13px; left:0px; background:#fff;}
+	.zymmt_s1{display:block; width:94px; position:absolute; top:13px; left:-15px; background:#fff;}
+	.zymmt_s2{display:block; width:204px; position:absolute; top:16px; left:-99px; background:#fff; height:60px; line-height:60px; text-align:center;}
+</style>
+<script>
+	window.onload=function(){
+		var oLl0=document.getElementById('zym_mt');
+		var oUl0=oLl0.getElementsByTagName('ul')[0];
+		var aLi0=oLl0.getElementsByTagName('li');
+		
+		var oLl5=document.getElementById('zym_more');
+		var oUl5=oLl5.getElementsByTagName('ul')[0];
+		var aLi5=oLl5.getElementsByTagName('li');
+		
+		var oLl1=document.getElementById('zym_lx');
+		var oUl1=oLl1.getElementsByTagName('ul')[0];
+		var aLi1=oLl1.getElementsByTagName('li');
+		
+		var oLl2=document.getElementById('zym_sell');
+		var oUl2=oLl2.getElementsByTagName('ul')[0];
+		var aLi2=oLl2.getElementsByTagName('li');
+		
+		var oLl3=document.getElementById('zym_bcar');
+		var oDiv3=oLl3.getElementsByTagName('div')[0];
+		
+		var oLl4=document.getElementById('zym_rec');
+		var oDiv4=oLl4.getElementsByTagName('div')[0];
+		
+		var oSpan=document.getElementById('zym_bej_ri');
+		var aA=oSpan.getElementsByTagName('a');
+		var oPic0=document.getElementById('zym_pic00');
+		var oPic1=document.getElementById('zym_pic11');
+		
+		
+		var oSpan2=document.getElementById('zym_change');
+		var aA2=oSpan2.getElementsByTagName('a');
+		var oImg=document.getElementById('zym_right2');
+		for(var i=0; i<aA2.length; i++){
+			aA2[i].b=i;
+			aA2[i].onmouseover=function(){
+				for(var k=0; k<aA2.length; k++){
+					aA2[k].style.background='';
+					}
+				this.style.background='#2db8ad';
+				if((this.b)%2==1){
+					oImg.src='img/zym_rright2.png';
+					
+				}else{
+					oImg.src='img/right2.png';
+					}
+				};
+			}
+		
+		for(var i=0; i<aA.length; i++){
+			aA[i].a=i;
+			aA[i].onmouseover=function(){
+				for(var k=0; k<aA.length; k++){
+					aA[k].style.background='';
+					}
+				this.style.background='#2db8ad';
+				if((this.a)%2==1){
+					oPic0.src='img/zym_blibei0.png';
+					oPic1.src='img/zym_blibei0.png';
+				}else{
+					oPic0.src='img/zym_blibei1.png';
+					oPic1.src='img/zym_blibei1.png';
+					}
+				};
+			}
+		
+		oLl5.onmouseover=function(){
+			this.className='ben';
+			oUl5.className='zymmt_s';
+			for(var i=0; i<aLi0.length; i++){
+				oLl5[i].className='hei_18';
+				}
+			};
+		oLl5.onmouseout=function(){
+			this.className='ben2';
+			oUl5.className='zymmt';
+			};
+		
+		oLl4.onmouseover=function(){
+			this.className='ben';
+			oDiv4.className='zymmt_s2';
+			
+			};
+		oLl4.onmouseout=function(){
+			this.className='ben2';
+			oDiv4.className='zymmt';
+			};
+		
+		oLl3.onmouseover=function(){
+			this.className='ben';
+			oDiv3.className='zymmt_s2';
+			
+			};
+		oLl3.onmouseout=function(){
+			this.className='ben2';
+			oDiv3.className='zymmt';
+			};
+		oLl0.onmouseover=function(){
+			this.className='ben';
+			oUl0.className='zymmt_s';
+			for(var i=0; i<aLi0.length; i++){
+				aLi0[i].className='hei_18';
+				}
+			};
+		oLl0.onmouseout=function(){
+			this.className='ben2';
+			oUl0.className='zymmt';
+			};
+		oLl1.onmouseover=function(){
+			this.className='ben';
+			oUl1.className='zymmt_s1';
+			for(var i=0; i<aLi0.length; i++){
+				aLi1[i].className='hei_18';
+				}
+			};
+		oLl1.onmouseout=function(){
+			this.className='ben2';
+			oUl1.className='zymmt';
+			};
+			
+		oLl2.onmouseover=function(){
+			this.className='ben';
+			oUl2.className='zymmt_s1';
+			for(var i=0; i<aLi0.length; i++){
+				aLi2[i].className='hei_18';
+				}
+			};
+		oLl2.onmouseout=function(){
+			this.className='ben2';
+			oUl2.className='zymmt';
+			};
+		
+		};
+</script>
+</head>
+ 
+<body>
+<!--头部开始-->	
+    <div class="zym_nav">
+    	<div class="zym_nadiv clearfix">
+        	<ul class="zym_nle fl">
+            	<li>美团 </li>
+                <li>美团 次美</li>
+                <li>次</li>
+                <li><a href="#" class="zymlog">登录</a></li>
+                <li class="zymb0"><a href="#" class="zymregis">注册</a><b>|</b></li>
+                <li class="zym_nv_pho">手机美团<i></i></li>
+            </ul>
+            
+            <ul class="zym_nri fr">
+            	<li class="zymn_order">
+                	我的订单
+                </li>
+                <li id="zym_mt">
+                	我的美团<i></i>
+                    <ul class="zymmt">
+                    	<li>
+                        	<a href="#">我的订单</a>
+                        </li>
+                        <li>
+                        	<a href="#">我的收藏</a>
+                        </li>
+                        <li>
+                        	<a href="#">我的积分</a>
+                        </li>
+                        <li>
+                        	<a href="#">我的订单</a>
+                        </li>
+                        <li>
+                        	<a href="#">我的订单</a>
+                        </li>
+                        <li>
+                        	<a href="#">我的收藏</a>
+                        </li>
+                        <li>
+                        	<a href="#">我的积分</a>
+                        </li>
+                    </ul>
+                </li><em>|</em>
+                <li id="zym_rec">
+                	最近浏览<i></i>
+                    <div class="zymrec">
+                    暂无浏览记录
+                    </div>
+                </li><em>|</em>
+                <li class="zymcar" id="zym_bcar">
+                	购物车<b id="zynnumber">0</b>件<i></i>
+                    <div class="zymbcar">
+                    	暂无交易记录
+                    </div>
+                </li><em>|</em>
+                <li id="zym_lx">
+                	联系客服<i></i>
+                     <ul class="zymlx">
+                    	<li>
+                        	<a href="#">申请退款</a>
+                        </li>
+                        <li>
+                        	<a href="#">申请退换货</a>
+                        </li>
+                        <li>
+                        	<a href="#">查看美团券</a>
+                        </li>
+                        <li>
+                        	<a href="#">绑定手机号</a>
+                        </li>
+                        <li>
+                        	<a href="#">常见问题</a>
+                        </li> 
+                    </ul>
+                </li><em>|</em>
+                <li id="zym_sell">
+                	我是商家<i></i>
+                    <ul class="zymsell">
+                    	<li>
+                        	<a href="#">登录商家中心</a>
+                        </li>
+                        <li>
+                        	<a href="#">我想合作</a>
+                        </li>
+                        <li>
+                        	<a href="#">商家营销平台</a>
+                        </li> 
+                    </ul>
+                </li><em>|</em>
+                <li id="zym_more">
+                	更多<i></i>
+                    <ul class="zymmore">
+                    	<li>
+                        	<a href="#">手机版</a>
+                        </li>
+                        <li>
+                        	<a href="#">邮件</a>
+                        </li>
+                        <li>
+                        	<a href="#">邀友</a>
+                        </li> 
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+     <div class="zym_mdqg">
+        <img src="img/header.png" />
+    </div>
+<!--头部结束-->
+<!--logo开始-->	
+    <div class="zym_lo clearfix">
+    	<div class="zymlo_le fl clearfix">
+        	<a href="#"></a>
+            <div class="zymlo_leri fl">
+                <p id="zym_beijin" class="zym_beijin">北京</p>
+                <p id="zym_city" class="zym_city">切换城市</p>
+            </div>
+        </div>
+        <div class="zymlo_mid fl">
+        	<div class="zymlo_mid_sear clearfix">
+            	<p class="zym_tgj fl" id="zym_tgj">团购</p>
+                <p id="zym_shagnji" style="display:none;">商家</p>
+                <input type="text" class="zym_tex fl" value="请输入商品名称、地址" />
+                <p class="zym_sousuo fl">搜 索</p>
+            </div>
+            <p class="zymlo_mid_btex clearfix">
+            	<a href="#">电影</a>
+                <a href="#">自助餐</a>
+                <a href="#">KTV</a>
+                <a href="#">生日蛋糕</a>
+                <a href="#">烤肉</a>
+                <a href="#">烤鱼</a>
+                <a href="#">按摩</a>
+                <a href="#">汉宝堡</a>
+                <a href="#">电影票</a>
+                <a href="#">汉宝</a>
+            </p>
+        </div>
+        <div class="zymlo_ri fl clearfix">
+        	<a href="#" class="zymlo_ri1"><i></i></a>
+            <a href="#" class="zymlo_ri2"><i></i></a>
+            <a href="#" class="zymlo_ri3"><i></i></a>
+        </div>
+    </div>
+    
+<!--logo下面的-->
+	<div class="zym_lobottom clearfix">
+    	<div class="zym_lob_le fl">
+        	<p class="zym_clasfiy">全部分类</p>
+            <ul>
+            	<li id="zym_ms">
+                	<p>
+                    	<a href="#" class="zym_loble_bold">美食</a>
+                    </p>
+                    <p class="zym_loble_tex">
+                    	<a href="#">自助餐</a>
+                        <a href="#">火锅</a>
+                        <a href="#">烤肉</a>
+                    </p>
+                    <i id="zym_gt" class="zym_gt"></i>
+                </li>
+               
+                <li id="zym_jiudian">
+                	<p>
+                    	<a href="#" class="zym_loble_bold">美食</a>
+                    </p>
+                    <p class="zym_loble_tex">
+                    	<a href="#">自助餐</a>
+                        <a href="#">火锅</a>
+                        <a href="#">烤肉</a>
+                    </p>
+                    <i id="zym_gt" class="zym_gt"></i>
+                </li>
+                <li id="zym_dianying">
+                	<p>
+                    	<a href="#" class="zym_loble_bold">美食</a>
+                    </p>
+                    <p class="zym_loble_tex">
+                    	<a href="#">自助餐</a>
+                        <a href="#">火锅</a>
+                        <a href="#">烤肉</a>
+                    </p>
+                    <i id="zym_gt" class="zym_gt"></i>
+                </li>
+                <li id="zym_entain">
+                	<p>
+                    	<a href="#" class="zym_loble_bold">美食</a>
+                    </p>
+                    <p class="zym_loble_tex">
+                    	<a href="#">自助餐</a>
+                        <a href="#">火锅</a>
+                        <a href="#">烤肉</a>
+                    </p>
+                    <i id="zym_gt" class="zym_gt"></i>
+                </li>
+                <li id="zym_tour">
+                	<p>
+                    	<a href="#" class="zym_loble_bold">美食</a>
+                        <a class="zym_piaoliu">热门漂流</a>
+                    </p>
+                    <p class="zym_loble_tex">
+                    	<a href="#">自助餐</a>
+                        <a href="#">火锅</a>
+                        <a href="#">烤肉</a>
+                    </p>
+                    <i id="zym_gt" class="zym_gt"></i>
+                </li>
+                <li id="zym_shehuofu">
+                	<p>
+                    	<a href="#" class="zym_loble_bold">美食</a>
+                        <a class="zym_piaoliu">七夕送好礼</a>
+                    </p>
+                    <p class="zym_loble_tex">
+                    	<a href="#">自助餐</a>
+                        <a href="#">火锅</a>
+                        <a href="#">烤肉</a>
+                    </p>
+                    <i id="zym_gt" class="zym_gt"></i>
+                </li>
+                <li id="zym_gouwu">
+                	<p>
+                    	<a href="#" class="zym_loble_bold">美食</a>
+                        <a class="zym_piaoliu">热门漂流</a>
+                    </p>
+                    <p class="zym_loble_tex">
+                    	<a href="#">自助餐</a>
+                        <a href="#">火锅</a>
+                        <a href="#">烤肉</a>
+                    </p>
+                    <i id="zym_gt" class="zym_gt"></i>
+                </li>
+                <li id="zym_li">
+                	<p>
+                    	<a href="#" class="zym_loble_bold">美食</a>
+                    </p>
+                    <p class="zym_loble_tex">
+                    	<a href="#">自助餐</a>
+                        <a href="#">火锅</a>
+                        <a href="#">烤肉</a>
+                    </p>
+                    <i id="zym_gt" class="zym_gt"></i>
+                </li>
+                <li class="zymbonone">
+                	<p class="zym_loble_bold">
+                    	<a href="#">抽检</a>
+                        
+                    </p>
+                   
+                </li>
+            </ul>
+        </div>
+        <div class="zym_lob_mi fl">
+        	<ul class="zym_lobmilis1 clearfix">
+            	<li>
+                	<a href="#">首页</a>
+                </li>
+                <li>
+                	<a href="#">首首页页</a>
+                </li>
+                <li>
+                	<a href="#">首页首页</a>
+                </li>
+                <li>
+                	<a href="#">首页首页</a>
+                </li>
+                <li>
+                	<a href="#">购物</a>
+                </li>
+                <li>
+                	<a href="#">首首页页</a>
+                </li>
+                <li>
+                	<a href="#">大品牌</a>
+                </li>
+                <li>
+                	<a href="#"><i class="zym_clock"></i>名品抢购</a>
+                </li>
+            </ul>
+            <div class="zym_hei479">
+            	<p class="zym_wid735 clearfix">
+                <i><em></em>热门团购</i>
+                <a href="#" class="co_f60">代金券</a>
+                <a href="#" class="co_f60">电影</a>
+                <a href="#" class="co_f60">热门点团购</a>
+                <a href="#">KTV</a>
+                <a href="#">团购</a>
+                <a href="#">团购</a>
+                <a href="#" class="co_f60" >热门团购</a>
+                <a href="#">游泳/水上乐园</a>
+                <a href="#">热门团购</a>
+                <a href="#">热门/团购</a>
+            </p>
+            	<p class="zym_wid735 clearfix">
+                <i><em></em>热门团购</i>
+                <a href="#" class="co_f60">代金券</a>
+                <a href="#" class="co_f60">电影</a>
+                <a href="#" class="co_f60">热门点团购</a>
+                <a href="#">KTV</a>
+                <a href="#">团购</a>
+                <a href="#">团购</a>
+                <a href="#" class="co_f60" >热门团购</a>
+                <a href="#">游泳/水上乐园</a>
+                <a href="#">热门团购</a>
+                <a href="#">热门/团购</a>
+            </p>
+            	<p class="zym_wid735 clearfix">
+                <i><em></em>热门团购</i>
+                <a href="#" class="co_f60">代金券</a>
+                <a href="#" class="co_f60">电影</a>
+                <a href="#" class="co_f60">热门点团购</a>
+                <a href="#">KTV</a>
+                <a href="#">团购</a>
+                <a href="#">团购</a>
+                <a href="#" class="co_f60" >热门团购</a>
+                <a href="#">游泳/水上乐园</a>
+                <a href="#">热门团购</a>
+                <a href="#">热门/团购</a>
+            </p>
+            	<p class="zym_title clearfix">
+                	<span class="zym_wx fl">
+                    </span>
+                    <span class="zym_bej fl">本周精选</span>
+                    <span class="zym_bej_ri fr" id="zym_bej_ri">
+                    	<a href="#"></a>
+                        <a href="#"></a>
+                        <a href="#"></a>
+                        <a href="#"></a>
+                        <a href="#"></a>
+                        <a href="#"></a>
+                    </span>
+                </p>
+                <ul class="zym_qiehuan clearfix">
+                	<li>
+                    	<a href="#">
+                        	<img src="img/zym_blibei0.png" id="zym_pic00"/>
+                        </a>
+                        <div class="zym_btext1 clearfix">
+                        	<div class="zym_btext1_le fl">
+                                <p class="zym_blbt">巴黎贝甜</p>
+                                <i>代金券1张。。。 。。 。。 。</i>
+                            </div>
+                            <div class="zym_btext1_pic fl">
+                            	<img src="img/zymboliang.png" />
+                            </div>
+                            <div class="zym_btext2 fl">
+                            	￥17元
+                            </div>
+                        </div>
+                        
+                    </li>
+                    <li>
+                    	<a href="#">
+                        	<img src="img/zym_blibei0.png" id="zym_pic11"/>
+                        </a>
+                        <div class="zym_btext1 clearfix">
+                        	<div class="zym_btext1_le fl">
+                                <p class="zym_blbt">巴黎贝甜</p>
+                                <i>代金券1张。。。 。。 。。 。</i>
+                            </div>
+                            <div class="zym_btext1_pic fl">
+                            	<img src="img/zymboliang.png" />
+                            </div>
+                            <div class="zym_btext2 fl">
+                            	￥17元
+                            </div>
+                        </div>
+                        
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="zym_lob_ri fl">
+        	<p class="zym_sjb">
+            	<a href="#">下载美团手机版</a>
+                <i class="zym_sjb_pic"></i>
+            </p>
+            <h3 class="zym_mmcz clearfix">
+            	<span class="zym_mmcz_le fl"><i>美</i><em>梦成真</em></span>
+                <span class="zym_mmcz_ri fr"><a href="#">更多</a></span>
+            </h3>
+            <ul class="zym_mxia">
+            	<li>
+                	<a href="#">
+                    	<img src="img/zym_rright2.png" id="zym_right2"/>
+                    </a>
+                    <span class="zym_change" id="zym_change">
+                    	<a href="#"></a>
+                        <a href="#"></a>
+                        <a href="#"></a>
+                    </span>
+                </li>
+                <li class="zym_gm">
+                	<p>
+                    	<b>tcls大辣椒手机</b><i>进行中</i>
+                    </p>
+                    <p>
+                    	<b>tcls大辣椒手机</b><i>进行中</i>
+                    </p>
+                    <p>
+                    	<b>tcls大辣椒手机</b><i>进行中</i>
+                    </p>
+                </li>
+                <li>
+                	<a href="#">
+                    	<img src="img/zym_rright.png" />
+                    </a>
+                    <span class="zym_change">
+                    	<a href="#"></a>
+                        <a href="#"></a>
+                        <a href="#"></a>
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+<!--fir开始-->	
+	<div class="zym_one">
+    	<div class="zym_one_le">
+        	<div class="zym_one_title clearfix">
+            	<span class="zymone_title_le fl">
+                	<i class="zymone_title_pic"></i><i>名点抢购</i>
+                    <b>距开始</b>
+                    <em>02</em>
+                    <b>：</b>
+                    <em>02</em>
+                    <b>：</b>
+                    <em>02</em>
+                </span>
+                <span class="zymone_title_ri fr">
+                	<a href="#">全部评价&gt;</a>
+                </span>
+            </div>
+            <ul class="zym_one_con clearfix">
+            	<li>
+                	<a href="#">
+                    	<img src="img/quanbuzym.png" />
+                    </a>
+                    <p class="zym_onecon_t1">2人餐。。。。</p>
+                    <p class="zym_onecon_t2"><i>￥138</i><b>手机购买立减20</b></p>
+                </li>
+                <li>
+                	<a href="#">
+                    	<img src="img/quanbuzym.png" />
+                    </a>
+                    <p class="zym_onecon_t1">2人餐。。。。</p>
+                    <p class="zym_onecon_t2"><i>￥138</i><b>手机购买立减20</b></p>
+                </li>
+                <li>
+                	<a href="#">
+                    	<img src="img/quanbuzym.png" />
+                    </a>
+                    <p class="zym_onecon_t1">2人餐。。。。</p>
+                    <p class="zym_onecon_t2"><i>￥138</i><b>手机购买立减20</b></p>
+                </li>
+                <li>
+                	<a href="#">
+                    	<img src="img/quanbuzym.png" />
+                    </a>
+                    <p class="zym_onecon_t1">2人餐。。。。</p>
+                    <p class="zym_onecon_t2"><i>￥138</i><b>手机购买立减20</b></p>
+                </li>
+            </ul>
+        </div>
+        <ul class="zym_one_ri fl">
+        	<li class="clearfix">
+                <i class="zym_one_rimt fl"></i>
+                <div class="zym_one_rimt2 fl">
+                    <p>美团手机版</p>
+                    <a href="#">免费下载<em>></em></a>
+                </div> 
+            </li>
+            <li class="clearfix">
+                <i class="zym_one_rimt fl"></i>
+                <div class="zym_one_rimt2 fl">
+                    <p>美团手机版</p>
+                    <a href="#">免费下载<em>></em></a>
+                </div> 
+            </li>
+            <li class="clearfix">
+                <i class="zym_one_rimt fl"></i>
+                <div class="zym_one_rimt2 fl">
+                    <p>美团手机版</p>
+                    <a href="#">免费下载<em>></em></a>
+                </div> 
+            </li>
+        </ul>
+    </div>
+<!--头部开始-->	
+<!--头部开始-->	
+<!--头部开始-->	
+<!--头部开始-->	
+<!--头部开始-->	
+<!--头部开始-->	
+<!--头部开始-->	
+<!--头部开始-->	
+<!--头部开始-->	
+<!--头部开始-->	
+<!--头部开始-->		
+</body>
+</html>

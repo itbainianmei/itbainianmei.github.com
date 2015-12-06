@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style>
+body{background:#000;text-align:center;}
+*{margin:0; padding:0;}
+#c1{background:#fff; background:url(img/game_bg_2_hd.jpg) no-repeat;}
+</style>
+<script src="js/comm"></script>
+<script src="js/Sprite.js"></script>
+<script src="js/fish.js"></script>
+<script src="js/cannon.js"></script>
+<script src="js/bullet.js"></script>
+<script>
+window.onload=function(){
+    var oC=document.getElementById('c1');
+    var gc=oC.getContext('2d');
+    loadImages({
+        bottom: 'img/bottom.png',
+        fish1: 'img/fish1.png',
+        fish2: 'img/fish2.png',
+        fish3: 'img/fish3.png',
+        fish4: 'img/fish4.png',
+        fish5: 'img/fish5.png',
+        cannon1: 'img/cannon1.png',
+        cannon2: 'img/cannon2.png',
+        cannon3: 'img/cannon3.png',
+        cannon4: 'img/cannon4.png',
+        cannon5: 'img/cannon5.png',
+        cannon6: 'img/cannon6.png',
+        cannon7: 'img/cannon7.png',
+        bullet:   'img/bullet.png',
+    },function(imgs){
+        //var s=gc.drawImage(imgs.fish1,0,0,55,37,100,100,55,37);
+        //
+        var cannon=new Cannon(imgs,1);
+        cannon.x=oC.width/2+45;
+        cannon.y=oC.height-30;
+        document.onmousemove=function(ev){
+            var x=ev.pageX-oC.offsetLeft,y=ev.pageY-oC.offsetTop;
+            var a=x-cannon.x;
+            var b=y-cannon.y;
+            cannon.rotate=a2d(Math.atan2(b,a))+90;
+        };
+
+        var bottom=new Sprite(imgs.bottom);
+        bottom.w=761;
+        bottom.h=71;
+        bottom.x=765/2+20;
+        bottom.y=oC.height-71/2+1;
+
+        
+        var aBullet=[];
+        oC.onclick=function(){
+            var bullet=new Bullet(imgs.bullet,cannon.type);
+            aBullet.push(bullet);
+            bullet.x=cannon.x;
+            bullet.y=cannon.y;
+            bullet.rotate=cannon.rotate;
+        };
+
+        var aFish=[];
+        setInterval(function(){
+            if(Math.random()<0.05){
+                var s=new Fish(imgs,rnd(1,6));
+                s.x=-50;
+                s.y=rnd(10,oC.height-20);
+                s.rotate=rnd(80,180);
+                aFish.push(s);
+            }
+        },30);
+
+
+        setInterval(function(){
+            gc.clearRect(0,0,oC.width,oC.height);
+            bottom.draw(gc);
+            for(var i=0;i<aBullet.length;i++){
+                 aBullet[i].draw(gc);
+                 aBullet[i].move();
+                 for(var j=0;j<aFish.length;j++){
+                    if(aBullet[i].collTest(aFish[j])){
+                        
+                        aFish.splice(j,1);
+                        j--;
+
+                        aBullet.splice(i,1);
+                        i--;
+
+                        if(i==-1 || j==-1)
+                            break;
+                    };
+                 }
+
+             }
+            cannon.draw(gc);
+            for(var i=0;i<aFish.length;i++)
+            {
+                aFish[i].draw(gc);
+                aFish[i].move();
+            }
+
+        },30);
+    });
+};
+</script>
+</head>
+<body>
+<canvas id="c1" height="600" width="800"></canvas>
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>3D-container</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style>
+body{background:#101820;}
+#box{width:200px; height:200px; position:relative; -webkit-transform-style:preserve-3d; -webkit-transform:perspective(800px)  rotateX(-35deg) rotateY(40deg); margin:250px auto;}
+#box div{width:200px; height:200px; position:absolute; top:0; left:0; background:yellow; }
+#box .front{-webkit-transform:translateZ(100px);}
+#box .back{-webkit-transform:translateZ(-100px);}
+#box .left{-webkit-transform:translateX(-100px) rotateY(-90deg);}
+#box .right{-webkit-transform:translateX(100px) rotateY(90deg);}
+#box .top{-webkit-transform:translateY(-100px) rotateX(90deg);}
+#box .bottom{-webkit-transform:translateY(100px) rotateX(-90deg);}
+.text{width:100%; font-size:28px; color:#fff; position:absolute; top:40px; left:50%; margin-left:-140px; height:340px;}
+.l{width:50px; height:440px; position:absolute; top:180px; left:250px; border:1px solid #147ee0;}
+.m{width:790px; height:50px; position:absolute; top:570px; left:250px; border:1px solid #147ee0;}
+.r{width:50px; height:440px; position:absolute; top:180px; left:990px; border:1px solid #147ee0;}
+#dir .l span,#dir .m span{position:absolute; top:0; left:0;background:-webkit-radial-gradient(#efefef,#062d5a);width:50px; height:50px; border-radius:50%;display:block;}
+#dir .m span{display:none;}
+#dir .r span{position:absolute; bottom:0; left:0;background:-webkit-radial-gradient(#efefef,#062d5a);width:50px; height:50px; border-radius:50%; display:none;}
+</style>
+<script>
+window.onload=function(){
+    var oDir=document.getElementById('dir');
+    var oL=oDir.children[0];
+    var oM=oDir.children[1];
+    var oR=oDir.children[2];
+    var oS1=oL.children[0];
+    var oS2=oM.children[0];
+    var oS3=oR.children[0];
+    var oBox=document.getElementById('box');
+    var left = false, right = false, top = false, bottom = false;
+    var x = 35;
+    var y = 40;
+    var i=0;
+    var j=0;
+    var k=0;
+    fnMove();
+    function fnMove(){
+        var timer=null,timer2=null,timer3=null;
+        timer=setInterval(function(){
+            i+=5;
+            oS1.style.top=i+'px';
+            if(i>=390){
+                oS2.style.display='block';
+                oS1.style.display='none';
+                oS1.style.top=0;
+                i=0;
+                clearInterval(timer);
+                timer2=setInterval(function(){
+                    j+=5;
+                    oS2.style.left=j+'px';
+                    if(j>=690){
+                        oS3.style.display='block';
+                        oS2.style.display='none';
+                        oS2.style.left=0;
+                        clearInterval(timer2);
+                        j=0; 
+                        timer3=setInterval(function(){
+                            k+=5;
+                            oS3.style.bottom=k+'px';
+                            if(k>=390){
+                                oS1.style.display='block';
+                                oS3.style.display='none';
+                                clearInterval(timer3); 
+                                k=0;
+                                oS3.style.bottom=0;
+                                fnMove();
+                            }
+                        },30);
+                    }
+                },30); 
+            }
+        },30);
+    }
+    oBox.onmousedown=function(ev){
+        var disX=ev.clientX-y;
+        var disY=ev.clientY-x;
+        document.onmousemove=function(ev){
+            x = ev.clientY-disY;
+            y = ev.clientX-disX;
+            oBox.style.WebkitTransform='perspective(800px) rotateX('+-x/3+'deg) rotateY('+y/3+'deg)';
+        };
+        document.onmouseup=function(){
+            document.onmousemove=null;
+            document.onmouseup=null;
+        };
+        return false;
+    };
+    setInterval(function(){
+        if(left){
+            y-=3;
+            oBox.style.WebkitTransform='perspective(800px) rotateX('+x/3+'deg) rotateY('+y/3+'deg)';
+        }
+        if(right){
+            y+=3;
+            oBox.style.WebkitTransform='perspective(800px) rotateX('+x/3+'deg) rotateY('+y/3+'deg)';
+        }
+        if(top){
+            x+=3;
+            oBox.style.WebkitTransform='perspective(800px) rotateX('+x/3+'deg) rotateY('+y/3+'deg)';
+        }
+        if(bottom){
+            x-=3;
+            oBox.style.WebkitTransform='perspective(800px) rotateX('+x/3+'deg) rotateY('+y/3+'deg)';
+        }
+    },30);
+
+    document.onkeydown=function(ev){
+        switch(ev.keyCode){
+            case 37:
+                left=true;
+            break;
+             case 38:
+                top=true;
+            break;
+             case 39:
+                right=true;
+            break;
+             case 40:
+                bottom=true;
+            break;
+        }
+    };
+    document.onkeyup=function(ev){
+        switch(ev.keyCode){
+            case 37:
+                left=false;
+            break;
+             case 38:
+                top=false;
+            break;
+             case 39:
+                right=false;
+            break;
+             case 40:
+                bottom=false;
+            break;
+        }
+    };
+};
+</script>
+</head>
+<body>
+<p class="text"><em>拖动盒子<em><i>,</i><em>了解人生</em></p>
+<div id="box">
+    <div class="front"><img src="img/d1.png" height="200" width="200" /></div>
+    <div class="back"><img src="img/d2.png" height="200" width="200" /></div>
+    <div class="left"><img src="img/d3.png" height="200" width="200" /></div>
+    <div class="right"><img src="img/d4.png" height="200" width="200" /></div>
+    <div class="top"><img src="img/p1.png" height="200" width="200" /></div>
+    <div class="bottom"><img src="img/p2.png" height="200" width="200" /></div>
+</div> 
+<div id="dir">
+
+    <div class="l"><span></span></div> 
+    <div class="m"><span></span></div> 
+    <div class="r"><span></span></div> 
+</div>
+</body>
+</html>
