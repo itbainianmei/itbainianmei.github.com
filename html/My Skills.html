@@ -38,7 +38,7 @@ window.onload=function(){
     rect.attr({'fill':'black'});
     var cx=600,cy=300,r=200;
     
-    var arr=[9,10,9,6,5,7,8,8,4,5,4,4];
+    var arr=[9,10,9,7,8,6,5,8,4,5,4,4];
     var iMax=Math.max.apply(null,arr);
     var aWidth=[];
     var arrColum=[];
@@ -48,7 +48,7 @@ window.onload=function(){
     //画图封装
     function creatColum(sx,sy,w,h,color){
         var path=oPage.path();
-        var aT=['js','html','css','vue.js','webpack','html5','css3','jquery','其他js框架','mui','bootstrap','frozen'];
+        var aT=['js','html','css','html5','css3','vue.js','webpack','jquery','mui','bootstrap','frozen','其他js框架'];
         path.attr({'path':[
             'M',sx,sy,
             'L',sx+w,sy,sx+w,sy+h,sx,sy+h,
